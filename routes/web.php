@@ -12,6 +12,7 @@ Route::get('/map', function () {
 });
 
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
 Route::get('/profile', function () {
     return view('Profile');

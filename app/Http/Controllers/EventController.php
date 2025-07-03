@@ -52,4 +52,9 @@ class EventController extends Controller
     return view('events.index', compact('events', 'categories', 'organizers', 'addresses', 'dates'));
 }
 
+public function show($id)
+{
+    $event = Event::findOrFail($id);
+    return view('event.show', compact('event'));
+}
 }
