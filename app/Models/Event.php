@@ -10,4 +10,6 @@ class Event extends Model
         'name', 'description', 'category', 'image',
         'organizer', 'vibe_score', 'address', 'time'
     ];
+
+
 }
