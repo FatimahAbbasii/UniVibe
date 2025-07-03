@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\SpotifyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,3 +20,5 @@ Route::get('/event/{slug}', [\App\Http\Controllers\EventController::class, 'show
 Route::post('/event/{slug}/add-song', [EventController::class, 'addSong'])->name('event.addSong');
 Route::get('/event/{slug}', [EventController::class, 'show'])->name('event.show');
 
+Route::get('/event/{slug}/spotify-search', [SpotifyController::class, 'search'])->name('spotify.search');
+Route::post('/event/{slug}/add-song', [EventController::class, 'addSong'])->name('event.addSong');

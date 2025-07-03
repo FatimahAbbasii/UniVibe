@@ -57,18 +57,9 @@
             color: #facc15;
         }
 
-        .search-box {
-            padding: 0 1rem 1rem;
-        }
 
-        .search-box input {
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 999px;
-            outline: none;
-        }
+
+
 
         .banner h2 {
             color: #facc15;
@@ -162,17 +153,7 @@
     with <span>UniVibe</span>
 </div>
 
-<div class="mt-6 relative -mb-6 z-20"> {{-- Removed px-0 from here --}}
-    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
-             viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-        </svg>
-        <input type="text" placeholder="Search event here..."
-               class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
-    </div>
-</div>
+
 
 <div class="bg-dark-card flex-grow -mt-2 overflow-hidden rounded-t-3xl rounded-b-3xl pb-4">
     <h2>{{ $title }}</h2>
@@ -180,16 +161,12 @@
 
 <div class="playlist pb-[100px]">
     {{-- Add Song Form --}}
-    <form method="POST" action="{{ route('event.addSong', ['slug' => request()->route('slug')]) }}" class="space-y-3">
-        @csrf
-        <input type="text" name="artist" placeholder="Artist Name"
-               class="w-full p-2 rounded-full text-black text-sm focus:outline-none" required>
-        <input type="text" name="title" placeholder="Song Title"
-               class="w-full p-2 rounded-full text-black text-sm focus:outline-none" required>
-        <input type="text" name="duration" placeholder="Duration (e.g. 3:45)"
-               class="w-full p-2 rounded-full text-black text-sm focus:outline-none" required>
-        <button type="submit" class="add-button">Add a Song</button>
-    </form>
+    <button
+        onclick="window.location.href='{{ route('spotify.search', ['slug' => request()->route('slug')]) }}'"
+        class="add-button mb-4"
+    >
+        Go to Spotify Search
+    </button>
 
     <div class="mt-4"></div>
 
