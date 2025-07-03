@@ -1,5 +1,5 @@
 {{-- resources/views/home-purple.blade.php --}}
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
     <style>
         /* Custom CSS for the main background gradient (Purple to Light Gray/White) */
         .bg-gradient-univibe {
-            background: linear-gradient(to bottom, #6C55C8, rgb(255, 255, 255)); 
+            background: linear-gradient(to bottom, #6C55C8, rgb(255, 255, 255));
             /* Start purple, end lighter gray/white */
         }
 
@@ -84,141 +84,141 @@
 
 <body class="text-white bg-gradient-univibe flex flex-col min-h-screen">
 
-    {{-- This div contains the header and greeting that sit on the gradient background --}}
-    {{-- Applied px-6 to this outer max-w-md div --}}
-    <div class="max-w-md mr-auto ml-2 relative z-10 flex-shrink-0 px-6">
-        {{-- Header --}}
-        <div class="flex justify-between items-center pt-6 pb-4"> {{-- Removed px-6 from here --}}
-            <div class="text-white text-xl">UniVibe</div>
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profile"
-                class="w-10 h-10 rounded-full border-2 border-white" />
-        </div>
-
-        {{-- Greeting and headline --}}
-        <div class="mt-4 mb-8"> {{-- Removed px-6 from here --}}
-            <p class="text-white text-lg mb-2">Hey, <span class="text-yellow-400">Silvia</span></p>
-            <h1 class="text-4xl leading-tight">
-                Feel the <span class="text-yellow-400">Hype</span>.<br />
-                Rule the Night<br />
-                with <span class="text-yellow-400">UniVibe</span>
-            </h1>
-        </div>
+{{-- This div contains the header and greeting that sit on the gradient background --}}
+{{-- Applied px-6 to this outer max-w-md div --}}
+<div class="max-w-md mr-auto ml-2 relative z-10 flex-shrink-0 px-6">
+    {{-- Header --}}
+    <div class="flex justify-between items-center pt-6 pb-4"> {{-- Removed px-6 from here --}}
+        <div class="text-white text-xl">UniVibe</div>
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profile"
+             class="w-10 h-10 rounded-full border-2 border-white" />
     </div>
 
-    {{-- Main content area with dark background, flex-grow, and rounding. --}}
-    {{-- This div now takes the full dark background and handles the bottom padding for the footer. --}}
-    <div class="bg-dark-card flex-grow -mt-2 overflow-hidden rounded-t-3xl rounded-b-3xl pb-24">
-        {{-- Inner wrapper for horizontally centering content within the dark background --}}
-        {{-- Applied px-6 to this inner max-w-md div --}}
-        <div class="max-w-md mx-auto px-6">
+    {{-- Greeting and headline --}}
+    <div class="mt-4 mb-8"> {{-- Removed px-6 from here --}}
+        <p class="text-white text-lg mb-2">Hey, <span class="text-yellow-400">Silvia</span></p>
+        <h1 class="text-4xl leading-tight">
+            Feel the <span class="text-yellow-400">Hype</span>.<br />
+            Rule the Night<br />
+            with <span class="text-yellow-400">UniVibe</span>
+        </h1>
+    </div>
+</div>
 
-            {{-- Icons row section --}}
-            <div class="pt-8 pb-4 relative z-0"> {{-- Removed px-6 from here --}}
-                {{-- Changed justify-around to justify-between for tighter edge alignment --}}
-                <div class="flex justify-between py-4">
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Sports</span>
-                    </div>
+{{-- Main content area with dark background, flex-grow, and rounding. --}}
+{{-- This div now takes the full dark background and handles the bottom padding for the footer. --}}
+<div class="bg-dark-card flex-grow -mt-2 overflow-hidden rounded-t-3xl rounded-b-3xl pb-24">
+    {{-- Inner wrapper for horizontally centering content within the dark background --}}
+    {{-- Applied px-6 to this inner max-w-md div --}}
+    <div class="max-w-md mx-auto px-6">
 
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Creative</span>
+        {{-- Icons row section --}}
+        <div class="pt-8 pb-4 relative z-0"> {{-- Removed px-6 from here --}}
+            {{-- Changed justify-around to justify-between for tighter edge alignment --}}
+            <div class="flex justify-between py-4">
+                <div class="flex flex-col items-center space-y-2 text-white text-sm">
+                    <div
+                        class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
+                        <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-8 w-8 object-contain">
                     </div>
-
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Parties</span>
-                    </div>
-
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Contests</span>
-                    </div>
+                    <span>Sports</span>
                 </div>
 
-                {{-- Search bar --}}
-                <div class="mt-6 relative -mb-6 z-20"> {{-- Removed px-0 from here --}}
-                    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-                        </svg>
-                        <input type="text" placeholder="Search event here..."
-                            class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
+                <div class="flex flex-col items-center space-y-2 text-white text-sm">
+                    <div
+                        class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
+                        <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-8 w-8 object-contain">
                     </div>
-                </div>
-            </div> {{-- End of Icons row section --}}
-
-
-            {{-- Upcoming events section --}}
-            <div class="pt-8"> {{-- Removed px-6 from here; pb-24 remains on parent .bg-dark-card --}}
-                <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">events</span></h2>
-
-                {{-- Event Card --}}
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
-                    <div class="relative event-image-filter h-48">
-                        <img src="{{ asset('party.png') }}" alt="Hacking by the Sea" class="w-full h-full object-cover" />
-                        <div
-                            class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
-                            Contests</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-univibe-purple text-lg mb-1">Hacking by the Sea</h3>
-                        <p class="text-gray-700 text-sm">A student party app would help students find and organize
-                            social
-                            events, particularly parties, near their campus.</p>
-                    </div>
+                    <span>Creative</span>
                 </div>
 
-                {{-- You can repeat the event card structure here for more events --}}
+                <div class="flex flex-col items-center space-y-2 text-white text-sm">
+                    <div
+                        class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
+                        <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-8 w-8 object-contain">
+                    </div>
+                    <span>Parties</span>
+                </div>
 
-            </div> {{-- End of upcoming events section --}}
+                <div class="flex flex-col items-center space-y-2 text-white text-sm">
+                    <div
+                        class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
+                        <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-8 w-8 object-contain">
+                    </div>
+                    <span>Contests</span>
+                </div>
+            </div>
 
-        </div> {{-- End of max-w-md mx-auto inner wrapper --}}
-    </div> {{-- End of main content area (bg-dark-card flex-grow) --}}
+            {{-- Search bar --}}
+            <div class="mt-6 relative -mb-6 z-20"> {{-- Removed px-0 from here --}}
+                <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                    </svg>
+                    <input type="text" placeholder="Search event here..."
+                           class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
+                </div>
+            </div>
+        </div> {{-- End of Icons row section --}}
 
 
-    {{-- Bottom Navigation Bar (fixed) --}}
-    <nav
-        class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto z-50">
-        {{-- Home Icon --}}
-        <button class="flex flex-col items-center text-purple-700">
-            <img src="{{ asset('home.png') }}" alt="Home Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Home</span>
-        </button>
+        {{-- Upcoming events section --}}
+        <div class="pt-8"> {{-- Removed px-6 from here; pb-24 remains on parent .bg-dark-card --}}
+            <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">events</span></h2>
 
-        {{-- Map Icon --}}
-        <button class="flex flex-col items-center text-gray-500">
-            <img src="{{ asset('map.png') }}" alt="Map Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Map</span>
-        </button>
+            {{-- Event Card --}}
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
+                <div class="relative event-image-filter h-48">
+                    <img src="{{ asset('party.png') }}" alt="Hacking by the Sea" class="w-full h-full object-cover" />
+                    <div
+                        class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
+                        Contests</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-univibe-purple text-lg mb-1">Hacking by the Sea</h3>
+                    <p class="text-gray-700 text-sm">A student party app would help students find and organize
+                        social
+                        events, particularly parties, near their campus.</p>
+                </div>
+            </div>
 
-        {{-- Events Icon --}}
-        <button class="flex flex-col items-center text-gray-500">
-            <img src="{{ asset('event.png') }}" alt="Events Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Events</span>
-        </button>
+            {{-- You can repeat the event card structure here for more events --}}
 
-        {{-- Profile Icon --}}
-        <button class="flex flex-col items-center text-gray-500">
-            <img src="{{ asset('profile.png') }}" alt="Profile Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Profile</span>
-        </button>
-    </nav>
+        </div> {{-- End of upcoming events section --}}
+
+    </div> {{-- End of max-w-md mx-auto inner wrapper --}}
+</div> {{-- End of main content area (bg-dark-card flex-grow) --}}
+
+
+{{-- Bottom Navigation Bar (fixed) --}}
+<nav
+    class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto z-50">
+    {{-- Home Icon --}}
+    <button class="flex flex-col items-center text-purple-700">
+        <img src="{{ asset('home.png') }}" alt="Home Icon" class="h-6 w-6 mb-1 object-contain">
+        <span class="text-xs">Home</span>
+    </button>
+
+    {{-- Map Icon --}}
+    <button class="flex flex-col items-center text-gray-500">
+        <img src="{{ asset('map.png') }}" alt="Map Icon" class="h-6 w-6 mb-1 object-contain">
+        <span class="text-xs">Map</span>
+    </button>
+
+    {{-- Events Icon --}}
+    <button class="flex flex-col items-center text-gray-500">
+        <img src="{{ asset('event.png') }}" alt="Events Icon" class="h-6 w-6 mb-1 object-contain">
+        <span class="text-xs">Events</span>
+    </button>
+
+    {{-- Profile Icon --}}
+    <button class="flex flex-col items-center text-gray-500">
+        <img src="{{ asset('profile.png') }}" alt="Profile Icon" class="h-6 w-6 mb-1 object-contain">
+        <span class="text-xs">Profile</span>
+    </button>
+</nav>
 </body>
 
 </html>
