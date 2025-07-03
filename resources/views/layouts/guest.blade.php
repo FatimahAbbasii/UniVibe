@@ -8,15 +8,19 @@
     <title>{{ config('app.name', 'UniVibe') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <style>
+    </style>
 </head>
-<body class="font-sans antialiased bg-gradient-to-b from-purple-500 to-purple-700 text-black">
+<body style="background-color: #6B56C3;">
 
-    <div class="min-h-screen flex items-center justify-center flex-col px-4 py-6">
+    <div>
         <!-- Slot (Login/Register Forms) -->
         {{ $slot }}
     </div>

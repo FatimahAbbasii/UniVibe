@@ -1,4 +1,14 @@
 <x-guest-layout>
+    <div class="min-h-screen bg-gradient-to-b from-purple-500 to-purple-700 flex flex-col items-center justify-center px-4">
+        
+        <!-- App Title -->
+        <h1 class="text-white text-4xl font-bold mb-8" style="font-family: 'Goldman', cursive;">UniVibe</h1>
+
+        <!-- Login Form Card -->
+        <div class="w-full max-w-md bg-white text-black rounded-2xl p-8 shadow-lg">
+
+            <!-- Session Status -->
+            <x-auth-session-status class="mb-4 text-green-500 text-sm" :status="session('status')" />
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,4 +59,6 @@
             </x-primary-button>
         </div>
     </form>
+    </div>
+    </div>
 </x-guest-layout>

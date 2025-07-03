@@ -2,7 +2,7 @@
     <div class="min-h-screen bg-gradient-to-b from-purple-500 to-purple-700 flex flex-col items-center justify-center px-4">
         
         <!-- App Title -->
-        <h1 class="text-white text-4xl font-bold mb-8">UniVibe</h1>
+        <h1 class="text-white text-4xl font-bold mb-8" style="font-family: 'Goldman', cursive;">UniVibe</h1>
 
         <!-- Login Form Card -->
         <div class="w-full max-w-md bg-white text-black rounded-2xl p-8 shadow-lg">
@@ -17,7 +17,7 @@
                 <div class="mb-4">
                     <label for="email" class="block text-sm mb-1 font-medium">Email</label>
                     <x-text-input id="email"
-                        class="block w-full px-4 py-2 border border-gray-300 rounded-md text-black focus:ring-purple-500 focus:border-purple-500"
+                        class="block w-full px-4 py-2 border"
                         type="email"
                         name="email"
                         :value="old('email')"
@@ -31,7 +31,7 @@
                 <div class="mb-4">
                     <label for="password" class="block text-sm mb-1 font-medium">Password</label>
                     <x-text-input id="password"
-                        class="block w-full px-4 py-2 border border-gray-300 rounded-md text-black focus:ring-purple-500 focus:border-purple-500"
+                        class="block w-full px-4 py-2"
                         type="password"
                         name="password"
                         required
@@ -48,7 +48,7 @@
                     @endif
 
                     <button type="submit"
-                        class="bg-black text-white text-sm px-6 py-3 rounded-md border border-white shadow-md hover:bg-gray-800 transition">
+                        class="bg-black text-white text-sm px-6 py-3 rounded-md border border-white shadow-md hover:bg-gray-800 transition"">
                         LOGIN
                     </button>
                 </div>
