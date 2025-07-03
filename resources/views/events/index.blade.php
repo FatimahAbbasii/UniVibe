@@ -115,6 +115,7 @@
         {{-- Upcoming events section --}}
         <div class="pt-2 space-y-6">
             @foreach($events as $event)
+            <a href="{{ route('events.show', $event->id) }}" class="block">
             <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
                 <div class="relative event-image-filter h-48">
                     <img src="{{ asset($event->image) }}" alt="{{ $event->name }}" class="w-full h-full object-cover" />
@@ -127,6 +128,7 @@
                     <p class="text-gray-700 text-sm">{{ $event->description }}</p>
                 </div>
             </div>
+            </a>
             @endforeach
         </div>
     </div>

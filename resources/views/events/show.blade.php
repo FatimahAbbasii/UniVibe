@@ -8,57 +8,81 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Goldman', sans-serif;
+        .bg-gradient-univibe {
+            background: linear-gradient(to bottom, #6C55C8, rgb(255, 255, 255));
         }
 
-        .bg-dark {
-            background-color: #1a1a1a;
+        .bg-dark-card {
+            background-color: #202020;
         }
 
         .text-neon-yellow {
             color: #FFA706;
         }
 
+        .icon-bg-purple {
+            background-color: #6C55C8;
+        }
+
+        .icon-bg-yellow {
+            background-color: #FFA706;
+        }
+
         .text-univibe-purple {
             color: #6C55C8;
+        }
+
+        body {
+            font-family: 'Goldman', sans-serif;
         }
     </style>
 </head>
 
-<body class="bg-dark text-white min-h-screen flex flex-col justify-between">
-
-    {{-- Header --}}
-    <div class="bg-gradient-to-b from-purple-700 to-black p-6 pb-4 rounded-b-3xl">
-        <div class="flex justify-between items-center mb-3">
-            <h1 class="text-3xl">Events</h1>
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-full w-10 h-10 border-2 border-white">
+<body class="text-white bg-gradient-univibe flex flex-col min-h-screen">
+    {{-- This div contains the header and greeting that sit on the gradient background --}}
+    <div class="max-w-md mr-auto ml-2 relative z-10 flex-shrink-0 px-6">
+        {{-- Header --}}
+        <div class="flex justify-between items-center pt-6 pb-4"> {{-- Removed px-6 from here --}}
+            <div class="text-white text-xl">UniVibe</div>
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profile"
+                class="w-10 h-10 rounded-full border-2 border-white r-0" />
         </div>
-        <img src="{{ asset('images/' . $event->image) }}" alt="{{ $event->name }}" class="w-full rounded-3xl h-48 object-cover mb-2">
-        <div class="absolute top-36 right-8 bg-yellow-400 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">
-            {{ ucfirst($event->category) }}
+
+        {{-- Greeting and headline --}}
+        <div class="mt-4 mb-4"> {{-- Removed px-6 from here --}}
+            <h1 class="text-4xl leading-tight"> Events </h1>
         </div>
     </div>
 
-    {{-- Content --}}
-    <div class="p-6 pt-2 space-y-4">
+    {{-- Main content area --}}
+    <div class="bg-dark-card flex-grow -mt-2 overflow-hidden rounded-t-3xl rounded-b-3xl pb-24">
+    <div class="max-w-md mx-auto ">
+        <img src="{{ asset($event->image) }}"
+     alt="{{ $event->name }}"
+     class="w-full h-48 object-cover rounded-t-3xl mb-2" />
+        <div class="absolute top-36 right-8 bg-yellow-400 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">
+            {{ ucfirst($event->category) }}
+        </div>
+
+        {{-- Content --}}
+    <div class="p-2 pt-2 space-y-4 px-6">
         <h2 class="text-3xl text-neon-yellow font-bold leading-snug">{{ $event->name }}</h2>
         <div class="flex items-center text-sm space-x-2">
             <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-6 h-6 rounded-full">
-            <span class="text-white">by <strong>{{ $event->organizer }}</strong></span>
+            <span class="text-white font-sans">by <strong>{{ $event->organizer }}</strong></span>
             <span class="text-yellow-400">4.3 ★★★★☆</span>
         </div>
 
-        <p class="text-gray-200 text-sm leading-relaxed">{{ $event->description }}</p>
+        <p class="text-gray-200 text-sm leading-relaxed font-sans">{{ $event->description }}</p>
 
         <div>
             <h3 class="uppercase text-univibe-purple text-xs font-bold">Location</h3>
-            <p class="text-sm">{{ $event->address }}</p>
+            <p class="text-sm font-sans">{{ $event->address }}</p>
         </div>
 
         <div>
             <h3 class="uppercase text-univibe-purple text-xs font-bold">Time & date</h3>
-            <p class="text-sm">{{ \Carbon\Carbon::parse($event->time)->format('jS M, H:i') }}</p>
+            <p class="text-sm font-sans">{{ \Carbon\Carbon::parse($event->time)->format('jS M, H:i') }}</p>
         </div>
 
         <div class="text-center mt-6">
@@ -70,13 +94,17 @@
             </div>
         </div>
 
-        <div class="flex items-center space-x-3 mt-6">
+        <div class="flex items-center mt-6">
             <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-8 h-8 rounded-full border-2 border-white">
             <img src="https://randomuser.me/api/portraits/women/66.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-3">
             <img src="https://randomuser.me/api/portraits/men/78.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-3">
-            <span class="text-xs ml-3">silvia1, silvia2, silvia3 and others are coming to this event</span>
+            <span class="text-xs ml-3 font-sans">silvia1, silvia2, silvia3 and others are coming to this event</span>
         </div>
     </div>
+    </div>
+    </div>
+
+
 
     {{-- Bottom Nav --}}
     <nav class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto z-50">

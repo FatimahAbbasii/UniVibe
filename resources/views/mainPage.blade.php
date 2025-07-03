@@ -113,80 +113,79 @@
         <div class="max-w-md mx-auto px-6">
 
             {{-- Icons row section --}}
-            <div class="pt-8 pb-4 relative z-0"> {{-- Removed px-6 from here --}}
+            <div class="pt-4 pb-4 relative z-0"> {{-- Removed px-6 from here --}}
                 {{-- Changed justify-around to justify-between for tighter edge alignment --}}
-                <div class="flex justify-between py-4">
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Sports</span>
-                    </div>
+                <div class="flex justify-between py-4 space-x-2">
+    <a href="{{ route('events.index', ['category' => 'Sports']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+            <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-7 w-7 object-contain">
+        </div>
+        <span>Sports</span>
+    </a>
 
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Creative</span>
-                    </div>
+    <a href="{{ route('events.index', ['category' => 'Creative']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+            <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-7 w-7 object-contain">
+        </div>
+        <span>Creative</span>
+    </a>
 
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Parties</span>
-                    </div>
+    <a href="{{ route('events.index', ['category' => 'Parties']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+            <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-7 w-7 object-contain">
+        </div>
+        <span>Parties</span>
+    </a>
 
-                    <div class="flex flex-col items-center space-y-2 text-white text-sm">
-                        <div
-                            class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-16 h-16 shadow-lg">
-                            <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-8 w-8 object-contain">
-                        </div>
-                        <span>Contests</span>
-                    </div>
-                </div>
+    <a href="{{ route('events.index', ['category' => 'Contests']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+            <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-7 w-7 object-contain">
+        </div>
+        <span>Contests</span>
+    </a>
+</div>
+
 
                 {{-- Search bar --}}
-                <div class="mt-6 relative -mb-6 z-20"> {{-- Removed px-0 from here --}}
-                    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-                        </svg>
-                        <input type="text" placeholder="Search event here..."
-                            class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
-                    </div>
-                </div>
+                <form method="GET" action="{{ route('events.index') }}" class="mt-6 relative -mb-6 z-20">
+    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+        </svg>
+        <input type="text" name="search" placeholder="Search event here..."
+            class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
+        <button type="submit" class="hidden"></button>
+    </div>
+</form>
+
             </div> {{-- End of Icons row section --}}
 
 
             {{-- Upcoming events section --}}
-            <div class="pt-8"> {{-- Removed px-6 from here; pb-24 remains on parent .bg-dark-card --}}
-                <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">events</span></h2>
+            @if ($latestEvent)
+<div class="pt-8">
+    <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">event</span></h2>
 
-                {{-- Event Card --}}
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
-                    <div class="relative event-image-filter h-48">
-                        <img src="{{ asset('party.png') }}" alt="Hacking by the Sea" class="w-full h-full object-cover" />
-                        <div
-                            class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
-                            Contests</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-univibe-purple text-lg mb-1">Hacking by the Sea</h3>
-                        <p class="text-gray-700 text-sm">A student party app would help students find and organize
-                            social
-                            events, particularly parties, near their campus.</p>
-                    </div>
+    {{-- Dynamic Event Card --}}
+    <a href="{{ route('events.show', $latestEvent->id) }}">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
+            <div class="relative event-image-filter h-48">
+                <img src="{{ asset($latestEvent->image) }}" alt="{{ $latestEvent->name }}" class="w-full h-full object-cover rounded-b-none rounded-t-2xl" />
+                <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
+                    {{ ucfirst($latestEvent->category) }}
                 </div>
+            </div>
+            <div class="p-4">
+                <h3 class="text-univibe-purple text-lg mb-1">{{ $latestEvent->name }}</h3>
+                <p class="text-gray-700 text-sm">{{ $latestEvent->description }}</p>
+            </div>
+        </div>
+    </a>
+</div>
+@endif
 
-                {{-- You can repeat the event card structure here for more events --}}
-
-            </div> {{-- End of upcoming events section --}}
 
         </div> {{-- End of max-w-md mx-auto inner wrapper --}}
     </div> {{-- End of main content area (bg-dark-card flex-grow) --}}

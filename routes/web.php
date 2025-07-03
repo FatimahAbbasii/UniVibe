@@ -2,10 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('mainPage');
-});
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/map', function () {
     return view('Map');

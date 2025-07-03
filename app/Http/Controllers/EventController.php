@@ -9,7 +9,7 @@ use App\Models\Event;
 class EventController extends Controller
 {
     public function index(Request $request)
-{
+    {
     $query = Event::query();
 
     // Apply filters
@@ -55,6 +55,6 @@ class EventController extends Controller
 public function show($id)
 {
     $event = Event::findOrFail($id);
-    return view('event.show', compact('event'));
+    return view('events.show', compact('event'));
 }
 }
