@@ -1,4 +1,3 @@
-{{-- resources/views/home-purple.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -157,7 +156,6 @@
                 </form>
 
             </div>
-
 
             {{-- Upcoming events section --}}
             @if ($latestEvent)
