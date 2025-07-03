@@ -119,6 +119,7 @@
             <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
                 <div class="relative event-image-filter h-48">
                     <img src="{{ asset($event->image) }}" alt="{{ $event->name }}" class="w-full h-full object-cover" />
+
                     <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
                         {{ ucfirst($event->category) }}
                     </div>

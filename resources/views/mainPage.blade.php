@@ -169,6 +169,10 @@
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800">
                         <div class="relative event-image-filter h-48">
                             <img src="{{ asset($latestEvent->image) }}" alt="{{ $latestEvent->name }}" class="w-full h-full object-cover rounded-b-none rounded-t-2xl" />
+
+                            <!-- Gradient overlay -->
+                             <div class="absolute inset-0 bg-purple-800 mix-blend-color opacity-80"></div>
+
                             <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
                                 {{ ucfirst($latestEvent->category) }}
                             </div>
