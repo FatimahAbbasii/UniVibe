@@ -219,7 +219,6 @@
             <span class="text-xs">Profile</span>
         </button>
     </nav>
-
 </body>
 
 </html>
