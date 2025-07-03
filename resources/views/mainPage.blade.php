@@ -155,7 +155,7 @@
         {{-- Event Card --}}
         <div class="bg-dark-card rounded-2xl overflow-hidden shadow-lg border border-gray-800">
             <div class="relative event-image-filter h-48">
-                <img src="/images/hacking-by-the-sea.jpg" alt="Hacking by the Sea" class="w-full h-full object-cover" />
+                <img src=".\hacking-by-the-sea.png" alt="Hacking by the Sea" class="w-full h-full object-cover" />
                 <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">Contests</div>
             </div>
             <div class="p-4">
