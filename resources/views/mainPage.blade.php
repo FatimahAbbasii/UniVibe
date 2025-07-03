@@ -85,7 +85,6 @@
 <body class="text-white bg-gradient-univibe flex flex-col min-h-screen">
 
     {{-- This div contains the header and greeting that sit on the gradient background --}}
-    {{-- Applied px-6 to this outer max-w-md div --}}
     <div class="max-w-md mr-auto ml-2 relative z-10 flex-shrink-0 px-6">
         {{-- Header --}}
         <div class="flex justify-between items-center pt-6 pb-4"> {{-- Removed px-6 from here --}}
@@ -106,90 +105,85 @@
     </div>
 
     {{-- Main content area with dark background, flex-grow, and rounding. --}}
-    {{-- This div now takes the full dark background and handles the bottom padding for the footer. --}}
     <div class="bg-dark-card flex-grow -mt-2 overflow-hidden rounded-t-3xl rounded-b-3xl pb-24">
         {{-- Inner wrapper for horizontally centering content within the dark background --}}
-        {{-- Applied px-6 to this inner max-w-md div --}}
         <div class="max-w-md mx-auto px-6">
 
             {{-- Icons row section --}}
             <div class="pt-4 pb-4 relative z-0"> {{-- Removed px-6 from here --}}
                 {{-- Changed justify-around to justify-between for tighter edge alignment --}}
                 <div class="flex justify-between py-4 space-x-2">
-    <a href="{{ route('events.index', ['category' => 'Sports']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
-            <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-7 w-7 object-contain">
-        </div>
-        <span>Sports</span>
-    </a>
+                    <a href="{{ route('events.index', ['category' => 'Sports']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                            <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-7 w-7 object-contain">
+                        </div>
+                        <span>Sports</span>
+                    </a>
 
-    <a href="{{ route('events.index', ['category' => 'Creative']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
-            <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-7 w-7 object-contain">
-        </div>
-        <span>Creative</span>
-    </a>
+                    <a href="{{ route('events.index', ['category' => 'Creative']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                            <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-7 w-7 object-contain">
+                        </div>
+                        <span>Creative</span>
+                    </a>
 
-    <a href="{{ route('events.index', ['category' => 'Parties']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
-            <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-7 w-7 object-contain">
-        </div>
-        <span>Parties</span>
-    </a>
+                    <a href="{{ route('events.index', ['category' => 'Parties']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                            <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-7 w-7 object-contain">
+                        </div>
+                        <span>Parties</span>
+                    </a>
 
-    <a href="{{ route('events.index', ['category' => 'Contests']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
-            <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-7 w-7 object-contain">
-        </div>
-        <span>Contests</span>
-    </a>
-</div>
-
+                    <a href="{{ route('events.index', ['category' => 'Contests']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                            <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-7 w-7 object-contain">
+                        </div>
+                        <span>Contests</span>
+                    </a>
+                </div>
 
                 {{-- Search bar --}}
                 <form method="GET" action="{{ route('events.index') }}" class="mt-6 relative -mb-6 z-20">
-    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-        </svg>
-        <input type="text" name="search" placeholder="Search event here..."
-            class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
-        <button type="submit" class="hidden"></button>
-    </div>
-</form>
+                    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                        </svg>
+                        <input type="text" name="search" placeholder="Search event here..."
+                            class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
+                        <button type="submit" class="hidden"></button>
+                    </div>
+                </form>
 
-            </div> {{-- End of Icons row section --}}
+            </div>
 
 
             {{-- Upcoming events section --}}
             @if ($latestEvent)
-<div class="pt-8">
-    <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">event</span></h2>
+            <div class="pt-8">
+                <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">event</span></h2>
 
-    {{-- Dynamic Event Card --}}
-    <a href="{{ route('events.show', $latestEvent->id) }}">
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
-            <div class="relative event-image-filter h-48">
-                <img src="{{ asset($latestEvent->image) }}" alt="{{ $latestEvent->name }}" class="w-full h-full object-cover rounded-b-none rounded-t-2xl" />
-                <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
-                    {{ ucfirst($latestEvent->category) }}
-                </div>
+                {{-- Dynamic Event Card --}}
+                <a href="{{ route('events.show', $latestEvent->id) }}">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800">
+                        <div class="relative event-image-filter h-48">
+                            <img src="{{ asset($latestEvent->image) }}" alt="{{ $latestEvent->name }}" class="w-full h-full object-cover rounded-b-none rounded-t-2xl" />
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
+                                {{ ucfirst($latestEvent->category) }}
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-univibe-purple text-lg mb-1">{{ $latestEvent->name }}</h3>
+                            <p class="text-gray-700 text-sm font-sans">{{ $latestEvent->description }}</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="p-4">
-                <h3 class="text-univibe-purple text-lg mb-1">{{ $latestEvent->name }}</h3>
-                <p class="text-gray-700 text-sm">{{ $latestEvent->description }}</p>
-            </div>
+            @endif
+
         </div>
-    </a>
-</div>
-@endif
-
-
-        </div> {{-- End of max-w-md mx-auto inner wrapper --}}
-    </div> {{-- End of main content area (bg-dark-card flex-grow) --}}
-
+    </div>
 
     {{-- Bottom Navigation Bar (fixed) --}}
     <nav
