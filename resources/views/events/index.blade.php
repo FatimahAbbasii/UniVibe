@@ -62,54 +62,55 @@
     <div class="bg-dark-card flex-grow -mt-2 overflow-hidden rounded-t-3xl rounded-b-3xl pb-24">
     <div class="max-w-md mx-auto px-6">
             {{-- Search bar --}}
-                <div class="mt-6 relative -mb-6 z-20">
-                    <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-                        </svg>
-                        <input type="text" placeholder="Search event here..."
-                            class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
-                    </div>
-                </div>
-
-        <form method="GET" action="{{ url()->current() }}" class="space-y-4" id="filterForm">
-
-    {{-- Category Dropdown --}}
-    <div class="mt-8">
-        <label for="category" class="text-sm text-white block mb-1">Category</label>
-        <select name="category" id="category" class="w-full px-4 py-2 rounded-lg text-black" onchange="document.getElementById('filterForm').submit();">
-            <option value="">All Categories</option>
-            @foreach($categories as $category)
-                <option value="{{ $category }}" {{ request('category') === $category ? 'selected' : '' }}>
-                    {{ $category }}
-                </option>
-            @endforeach
-        </select>
-    </div>
-
-    {{-- Date Dropdown --}}
-    <div>
-        <label for="date" class="text-sm text-white block mb-1">Date</label>
-        <select name="date" id="date" class="w-full px-4 py-2 rounded-lg text-black" onchange="document.getElementById('filterForm').submit();">
-            <option value="">All Dates</option>
-            @foreach($dates as $date)
-                <option value="{{ $date }}" {{ request('date') === $date ? 'selected' : '' }}>
-                    {{ \Carbon\Carbon::parse($date)->format('M j') }}
-                </option>
-            @endforeach
-        </select>
-    </div>
-
-    {{-- Clear Button --}}
-    @if(request()->hasAny(['category', 'location', 'date']))
-        <div class="mt-2">
-            <a href="{{ url()->current() }}" class="text-sm text-orange-400 underline">Clear filters</a>
+    <form method="GET" action="{{ url()->current() }}" class="mt-6 relative -mb-6 z-20">
+        <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+            </svg>
+            <input type="text" name="name" placeholder="Search event here..."
+                value="{{ request('name') }}"
+                class="ml-3 flex-grow bg-transparent focus:outline-none text-black text-base" />
         </div>
-    @endif
-</form>
+    </form>
 
+    <h3 class="text-white text-lg mb-1 mt-8">Filter events</h3>
+    <form method="GET" action="{{ url()->current() }}" class="space-y-4 mb-6" id="filterForm">
+    {{-- Category dropdown --}}
+    <select name="category" class="w-full px-4 py-2 rounded-lg text-black" onchange="this.form.submit()">
+        <option value="">All Categories</option>
+        @foreach($categories as $category)
+            <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>{{ $category }}</option>
+        @endforeach
+    </select>
+
+    {{-- Address dropdown --}}
+    <select name="address" class="w-full px-4 py-2 rounded-lg text-black" onchange="this.form.submit()">
+        <option value="">All Locations</option>
+        @foreach($addresses as $address)
+            <option value="{{ $address }}" {{ request('address') == $address ? 'selected' : '' }}>{{ $address }}</option>
+        @endforeach
+    </select>
+
+    {{-- Vibe Score Range --}}
+    <div class="flex gap-2">
+        <input type="number" name="vibe_min" value="{{ request('vibe_min') }}" min="0" max="100"
+               placeholder="Min Vibe" class="w-1/2 px-4 py-2 rounded-lg text-black" />
+        <input type="number" name="vibe_max" value="{{ request('vibe_max') }}" min="0" max="100"
+               placeholder="Max Vibe" class="w-1/2 px-4 py-2 rounded-lg text-black" />
+    </div>
+
+    {{-- Time/date picker --}}
+    <input type="date" name="time" value="{{ request('time') }}"
+           class="w-full px-4 py-2 rounded-lg text-black" />
+
+    {{-- Submit / Reset --}}
+    <div class="flex justify-between items-center">
+        <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-lg">Filter</button>
+        <a href="{{ url()->current() }}" class="text-sm text-orange-400 underline">Clear</a>
+    </div>
+</form>
 
         {{-- Upcoming events section --}}
         <div class="pt-2 space-y-6">
@@ -163,6 +164,19 @@
             <span class="text-xs">Profile</span>
         </button>
     </nav>
+
+    <script>
+    const searchInput = document.querySelector('input[name="name"]');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            clearTimeout(window.searchDelay);
+            window.searchDelay = setTimeout(() => {
+                searchInput.form.submit();
+            }, 400); // delay so it doesn’t overload
+        });
+    }
+</script>
+
 </body>
 
 </html>
