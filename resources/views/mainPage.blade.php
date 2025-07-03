@@ -173,34 +173,34 @@
 
 {{-- Bottom Navigation Bar (fixed) --}}
 <nav class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto z-50">
-    <button class="flex flex-col items-center text-purple-700">
+    <a href="/" class="flex flex-col items-center {{ request()->is('/') ? 'text-purple-700' : 'text-gray-500' }}">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-7 13v-6h4v6m5-3v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4m13 0H6" />
         </svg>
         <span class="text-xs">Home</span>
-    </button>
+    </a>
 
-    <button class="flex flex-col items-center text-gray-500">
+    <a href="/map" class="flex flex-col items-center {{ request()->is('map') ? 'text-purple-700' : 'text-gray-500' }}">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.382V7a2 2 0 012-2h6m8 5v6a2 2 0 01-2 2h-6m-3 0v-6a2 2 0 012-2h6" />
         </svg>
         <span class="text-xs">Map</span>
-    </button>
+    </a>
 
-    <button class="flex flex-col items-center text-gray-500">
+    <a href="/events" class="flex flex-col items-center {{ request()->is('events') ? 'text-purple-700' : 'text-gray-500' }}">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6m6 3v-6a2 2 0 00-2-2h-6a2 2 0 00-2 2v6m6-6v6" />
         </svg>
         <span class="text-xs">Events</span>
-    </button>
+    </a>
 
-    <button class="flex flex-col items-center text-gray-500">
+    <a href="/profile" class="flex flex-col items-center {{ request()->is('profile') ? 'text-purple-700' : 'text-gray-500' }}">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="12" cy="12" r="10" stroke-width="2" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
         <span class="text-xs">Profile</span>
-    </button>
+    </a>
 </nav>
 
 </body>
