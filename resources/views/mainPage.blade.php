@@ -6,15 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UniVibe - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    {{-- Import Goldman font from Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom CSS for the main background gradient */
+        /* Custom CSS for the main background gradient (Purple to Light Gray/White) */
         .bg-gradient-univibe {
-            background: linear-gradient(to bottom, #5B008E, #3D0063); /* Deeper purples to match the image */
+            background: linear-gradient(to bottom, #6C55C8, rgb(255, 255, 255)); /* Start purple, end lighter gray/white */
         }
 
         /* Custom dark background for the icon row and upcoming events card */
         .bg-dark-card {
-            background-color: #1F0038; /* A very dark, almost black-purple */
+            background-color:#202020; /* A very dark, almost black-purple */
+        }
+
+        /* Custom CSS for the neon yellow text */
+        .text-neon-yellow {
+            color: #FFA706; /* A bright, almost gold-like yellow */
         }
 
         /* Custom CSS for the event image filter effect */
@@ -43,27 +52,35 @@
 
         /* Adjusting for proper display of icons (heroicons vs image) */
         .icon-bg-purple {
-            background-color: #8B5CF6; /* Tailwind purple-500 */
+            background-color: #6C55C8; /* Tailwind purple-500 */
         }
         .icon-bg-yellow {
             background-color: #FBBF24; /* Tailwind yellow-400 */
         }
+
+        /* Apply Goldman font to the body (or specific elements) */
+        body {
+            font-family: 'Goldman';
+        }
+
+        /* If you want to override Tailwind's default font-sans, you can configure it in tailwind.config.js */
+        /* For this example, setting it directly on body is sufficient. */
     </style>
 </head>
-<body class="font-sans text-white bg-gradient-univibe flex flex-col min-h-screen">
+<body class="text-white bg-gradient-univibe flex flex-col min-h-screen">
 
-<div class="flex-grow max-w-md mx-auto relative z-10"> {{-- Main content area, flex-grow to push footer down --}}
+<div class="flex-grow max-w-md mx-auto relative z-10">
 
     {{-- Header --}}
     <div class="flex justify-between items-center px-6 pt-6 pb-4">
-        <div class="font-bold text-white text-xl">UniVibe</div>
+        <div class="text-white text-xl">UniVibe</div>
         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white" />
     </div>
 
     {{-- Greeting and headline --}}
     <div class="px-6 mt-4 mb-8">
-        <p class="text-white text-lg mb-2">Hey, <span class="text-yellow-400 font-semibold">Silvia</span></p>
-        <h1 class="font-extrabold text-4xl leading-tight">
+        <p class="text-white text-lg mb-2">Hey, <span class="text-yellow-400">Silvia</span></p>
+        <h1 class="text-4xl leading-tight">
             Feel the <span class="text-yellow-400">Hype</span>.<br />
             Rule the Night<br />
             with <span class="text-yellow-400">UniVibe</span>
@@ -71,7 +88,7 @@
     </div>
 
     {{-- Wrapper for the content below the main headline, to have a different background --}}
-    <div class="bg-dark-card rounded-t-3xl pt-8 pb-4 px-6 relative z-0 -mt-2"> {{-- -mt-2 to subtly overlap the gradient above --}}
+    <div class="bg-dark-card rounded-t-3xl pt-8 pb-4 px-6 relative z-0 -mt-2">
 
         {{-- Icons row --}}
         <div class="flex justify-around py-4">
@@ -119,7 +136,7 @@
         </div>
 
         {{-- Search bar --}}
-        <div class="px-0 mt-6 relative -mb-6 z-20"> {{-- Negative margin to overlap icon row, z-20 for layering --}}
+        <div class="px-0 mt-6 relative -mb-6 z-20">
             <div class="flex items-center bg-white rounded-full px-4 py-3 text-gray-700 shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
@@ -132,34 +149,22 @@
 
 
     {{-- Upcoming events section (also inside dark background area) --}}
-    <div class="bg-dark-card px-6 pb-20 pt-8 rounded-b-3xl"> {{-- Added padding-bottom to account for fixed nav --}}
-        <h2 class="font-semibold text-white text-xl mb-4">Upcoming <span class="text-yellow-400">events</span></h2>
+    <div class="bg-dark-card px-6 pb-24 pt-8 rounded-b-3xl">
+        <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">events</span></h2>
 
         {{-- Event Card --}}
-        <div class="bg-dark-card rounded-2xl overflow-hidden shadow-lg border border-gray-800"> {{-- Darker border for definition --}}
-            <div class="relative event-image-filter h-48"> {{-- Added h-48 for consistent height --}}
+        <div class="bg-dark-card rounded-2xl overflow-hidden shadow-lg border border-gray-800">
+            <div class="relative event-image-filter h-48">
                 <img src="/images/hacking-by-the-sea.jpg" alt="Hacking by the Sea" class="w-full h-full object-cover" />
-                <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full font-bold">Contests</div>
+                <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">Contests</div>
             </div>
             <div class="p-4">
-                <h3 class="text-white font-bold text-lg mb-1">Hacking by the Sea</h3>
+                <h3 class="text-white text-lg mb-1">Hacking by the Sea</h3>
                 <p class="text-gray-300 text-sm">A student party app would help students find and organize social events, particularly parties, near their campus.</p>
             </div>
         </div>
 
         {{-- You can repeat the event card structure here for more events --}}
-        {{-- For example:
-        <div class="bg-dark-card rounded-2xl overflow-hidden shadow-lg border border-gray-800 mt-4">
-            <div class="relative event-image-filter h-48">
-                <img src="https://via.placeholder.com/400x200" alt="Another Event" class="w-full h-full object-cover" />
-                <div class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-bold">Party</div>
-            </div>
-            <div class="p-4">
-                <h3 class="text-white font-bold text-lg mb-1">Tech Meetup & Pizza</h3>
-                <p class="text-gray-300 text-sm">Join us for a casual evening of tech talks, networking, and free pizza for all students!</p>
-            </div>
-        </div>
-        --}}
 
     </div> {{-- End of upcoming events section --}}
 
@@ -167,7 +172,7 @@
 
 
 {{-- Bottom Navigation Bar (fixed) --}}
-<nav class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto">
+<nav class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto z-50">
     <button class="flex flex-col items-center text-purple-700">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-7 13v-6h4v6m5-3v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4m13 0H6" />
@@ -186,7 +191,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6m6 3v-6a2 2 0 00-2-2h-6a2 2 0 00-2 2v6m6-6v6" />
         </svg>
-        <span class="text-xs">Calendar</span>
+        <span class="text-xs">Events</span>
     </button>
 
     <button class="flex flex-col items-center text-gray-500">
