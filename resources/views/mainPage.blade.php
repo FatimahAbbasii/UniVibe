@@ -14,7 +14,7 @@
     <style>
         /* Custom CSS for the main background gradient (Purple to Light Gray/White) */
         .bg-gradient-univibe {
-            background: linear-gradient(to bottom, #6C55C8, rgb(255, 255, 255)); 
+            background: linear-gradient(to bottom, #6C55C8, rgb(255, 255, 255));
             /* Start purple, end lighter gray/white */
         }
 
