@@ -194,7 +194,7 @@
         <span class="text-xs">Events</span>
     </a>
 
-    <a href="/profile" class="flex flex-col items-center {{ request()->is('profile') ? 'text-purple-700' : 'text-gray-500' }}">
+    <a href="/profilePage" class="flex flex-col items-center {{ request()->is('profile') ? 'text-purple-700' : 'text-gray-500' }}">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="12" cy="12" r="10" stroke-width="2" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
