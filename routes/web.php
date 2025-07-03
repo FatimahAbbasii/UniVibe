@@ -20,9 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/events', function () {
     return view('Events');
     });
-    Route::get('/profilePage', function () {
-    return view('Profile');
-    });
 });
 
 require __DIR__.'/auth.php';
