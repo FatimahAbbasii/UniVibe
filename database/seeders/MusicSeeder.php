@@ -3,13 +3,13 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Event;
+use App\Models\Music;
 
-class EventSeeder extends Seeder
+class MusicSeeder extends Seeder
 {
     public function run(): void
     {
-        $events = [
+        $musics = [
             [
                 'name' => 'Painting Jam',
                 'description' => 'A chill night of freestyle painting with snacks and music.',
@@ -162,8 +162,8 @@ class EventSeeder extends Seeder
             ],
         ];
 
-        foreach ($events as $event) {
-            Event::create($event);
+        foreach ($musics as $music) {
+            Music::create($music);
         }
     }
 }

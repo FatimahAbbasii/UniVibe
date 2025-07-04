@@ -118,7 +118,7 @@
                         </div>
 
                         {{-- Add Song Form --}}
-                        <form method="POST" action="{{ route('event.addSong', ['slug' => $slug]) }}">
+                        <form method="POST" action="{{ route('music.addSong', ['slug' => $slug]) }}">
                             @csrf
                             <input type="hidden" name="artist" value="{{ $track->artists[0]->name }}">
                             <input type="hidden" name="title" value="{{ $track->name }}">

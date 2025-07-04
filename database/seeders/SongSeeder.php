@@ -12,7 +12,7 @@ class SongSeeder extends Seeder
     {
         DB::table('songs')->insert([
             [
-                'event_slug' => 'study-night',
+                'music_slug' => 'study-night',
                 'artist' => 'Dua Lipa',
                 'title' => 'Dance The Night',
                 'duration' => '2:58',
@@ -20,7 +20,7 @@ class SongSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'event_slug' => 'study-night',
+                'music_slug' => 'study-night',
                 'artist' => 'Sabrina Carpenter',
                 'title' => 'Espresso',
                 'duration' => '3:23',
@@ -28,7 +28,7 @@ class SongSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'event_slug' => 'study-night',
+                'music_slug' => 'study-night',
                 'artist' => 'Lady Gaga',
                 'title' => 'Poker Face',
                 'duration' => '3:46',
@@ -36,7 +36,7 @@ class SongSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'event_slug' => 'study-night',
+                'music_slug' => 'study-night',
                 'artist' => 'Shakira',
                 'title' => 'Waka Waka',
                 'duration' => '3:55',
@@ -44,7 +44,7 @@ class SongSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'event_slug' => 'dance-party',
+                'music_slug' => 'dance-party',
                 'artist' => 'Beyoncé',
                 'title' => 'Break My Soul',
                 'duration' => '4:01',
@@ -52,7 +52,7 @@ class SongSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'event_slug' => 'dance-party',
+                'music_slug' => 'dance-party',
                 'artist' => 'Bruno Mars',
                 'title' => 'Uptown Funk',
                 'duration' => '3:59',

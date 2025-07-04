@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 
-class EventController extends Controller
+class MusicController extends Controller
 {
     public function show($slug)
     {
-        // Fetch songs from database based on event_slug
-        $songs = Song::where('event_slug', $slug)->get();
+        $songs = Song::where('music_slug', $slug)->get();
 
         // Convert slug to title (e.g., 'study-night' => 'Study Night')
         $title = ucwords(str_replace('-', ' ', $slug));
 
-        return view('event', [
+        return view('music', [
             'title' => $title,
             'songs' => $songs
         ]);
@@ -31,13 +30,13 @@ class EventController extends Controller
 
         // Store new song in the database
         Song::create([
-            'event_slug' => $slug,
+            'music_slug' => $slug,
             'artist' => $request->artist,
             'title' => $request->title,
             'duration' => $request->duration,
         ]);
 
-        return redirect()->route('event.show', ['slug' => $slug]);
+        return redirect()->route('music.show', ['slug' => $slug]);
     }
 }
 

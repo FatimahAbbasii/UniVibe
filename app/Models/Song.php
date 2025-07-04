@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    protected $fillable = ['event_slug', 'artist', 'title', 'duration'];
+    protected $fillable = ['music_slug', 'artist', 'title', 'duration'];
 }

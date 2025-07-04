@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
-            $table->string('event_slug'); // e.g. 'study-night'
+            $table->string('music_slug'); // e.g. 'study-night'
             $table->string('artist');
             $table->string('title');
             $table->string('duration');

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Music extends Model
 {
     protected $fillable = [
         'name', 'description', 'category', 'image',
