@@ -94,7 +94,6 @@
   </style>
 </head>
 <body class="text-white bg-gradient-univibe overflow-hidden">
-
   <div class="title">UniVibe</div>
   <div id="map"></div>
 
@@ -212,7 +211,6 @@
 
         activeMarker = marker;
       });
-
       markers.push(marker);
     });
   </script>
