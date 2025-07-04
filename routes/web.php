@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\MusicController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SpotifyController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
@@ -28,5 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+//spotify routes
+Route::get('/music/{slug}', [\App\Http\Controllers\MusicController::class, 'show']);
+Route::get('/music/{slug}', [MusicController::class, 'show'])->name('music.show');
 
+Route::post('/music/{slug}/add-song', [MusicController::class, 'addSong'])->name('music.addSong');
+
+Route::get('/music/{slug}/spotify-search', [SpotifyController::class, 'search'])->name('spotify.search');
+Route::post('/music/{slug}/add-song', [MusicController::class, 'addSong'])->name('music.addSong');
 require __DIR__ . '/auth.php';
