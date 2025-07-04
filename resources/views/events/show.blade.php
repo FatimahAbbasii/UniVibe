@@ -85,6 +85,12 @@
             <p class="text-sm font-sans">{{ \Carbon\Carbon::parse($event->time)->format('jS M, H:i') }}</p>
         </div>
 
+        <a href="{{ url('music/' . Str::slug($event->name)) }}">
+            <button class="bg-neon-yellow text-purple-800 font-bold px-6 py-2 rounded-full hover:bg-yellow-500 transition-colors duration-300">
+                Pick music for the event
+            </button>
+        </a>
+
         <div class="text-center mt-6">
             <p class="mb-2">Are you coming?</p>
             <div class="flex justify-around text-sm font-semibold">
@@ -98,7 +104,7 @@
             <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-8 h-8 rounded-full border-2 border-white">
             <img src="https://randomuser.me/api/portraits/women/66.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-3">
             <img src="https://randomuser.me/api/portraits/men/78.jpg" class="w-8 h-8 rounded-full border-2 border-white -ml-3">
-            <span class="text-xs ml-3 font-sans">silvia1, silvia2, silvia3 and others are coming to this event</span>
+            <span class="text-xs ml-3 font-sans">Dragan, Petkan, Kiro and others are coming to this event</span>
         </div>
     </div>
     </div>

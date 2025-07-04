@@ -1,4 +1,9 @@
 <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- Import Goldman font from Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
     <Style>
         body {
             margin: 0;
@@ -92,8 +97,13 @@
             color: #fff;
             background-color: #7c3aed;
         }
+        nav {
+            padding-bottom: env(safe-area-inset-bottom, 1rem);
+        }
+
     </Style>
 </head>
+<body>
 <div class="playlist p-4">
     {{-- Search Form --}}
     <form method="GET" action="{{ route('spotify.search', ['slug' => $slug]) }}" class="mb-6 space-y-3">
@@ -135,3 +145,33 @@
         <p class="text-white mt-4">No results found for "{{ request('q') }}".</p>
     @endif
 </div>
+<nav
+    class="fixed bottom-0 left-1/2 -translate-x-1/2 bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md w-full mx-auto z-50"
+    style="padding-bottom: env(safe-area-inset-bottom, 1rem);"
+>
+    {{-- Home Icon --}}
+    <a href="{{ route('home') }}" class="flex flex-col items-center {{ request()->routeIs('home') ? 'text-purple-700' : 'text-gray-500' }}">
+        <img src="{{ asset('home.png') }}" alt="Home Icon" class="h-6 w-6 mb-1 object-contain" />
+        <span class="text-xs">Home</span>
+    </a>
+
+    {{-- Map Icon --}}
+    <a href="{{ route('map') }}" class="flex flex-col items-center {{ request()->routeIs('map') ? 'text-purple-700' : 'text-gray-500' }}">
+        <img src="{{ asset('map.png') }}" alt="Map Icon" class="h-6 w-6 mb-1 object-contain" />
+        <span class="text-xs">Map</span>
+    </a>
+
+    {{-- Events Icon --}}
+    <a href="{{ route('events.index') }}" class="flex flex-col items-center {{ request()->routeIs('events.*') ? 'text-purple-700' : 'text-gray-500' }}">
+        <img src="{{ asset('event.png') }}" alt="Events Icon" class="h-6 w-6 mb-1 object-contain" />
+        <span class="text-xs">Events</span>
+    </a>
+
+    {{-- Profile Icon --}}
+    <a href="{{ route('profile.edit') }}" class="flex flex-col items-center {{ request()->routeIs('profile.edit') ? 'text-purple-700' : 'text-gray-500' }}">
+        <img src="{{ asset('profile.png') }}" alt="Profile Icon" class="h-6 w-6 mb-1 object-contain" />
+        <span class="text-xs">Profile</span>
+    </a>
+</nav>
+
+</body>
