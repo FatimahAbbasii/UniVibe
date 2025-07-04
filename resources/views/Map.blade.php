@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -89,8 +90,8 @@
     }
 
     .text-univibe-purple {
-            color: #6C55C8;
-        }
+      color: #6C55C8;
+    }
   </style>
 </head>
 
@@ -99,7 +100,7 @@
   <div id="map"></div>
 
   {{-- Bottom Navigation Bar (fixed) --}}
-    <x-navigation />
+  <x-navigation />
 
   <div id="bottom-popup"></div>
 
@@ -120,21 +121,24 @@
     const events = [
       {
         coords: [3.57283, 51.44431],
-        name: 'Hack by the Sea',
-        description: '24h Hackathon by the Dutch coast. Food, swag, prizes!',
-        category: 'Contests',
+        name: 'Painting Jam',
+        description: 'A chill night of freestyle painting with snacks and music.',
+        category: 'Creative',
+        id: 1
       },
       {
         coords: [3.5735, 51.4448],
-        name: 'Silent Disco Night',
-        description: 'Wireless headphones, 3 DJs, 1 vibe.',
-        category: 'Parties',
+        name: 'Hack by the Sea',
+        description: '24h Hackathon by the Dutch coast. Food, swag, prizes!',
+        category: 'Contest',
+        id: 2
       },
       {
         coords: [3.5715, 51.4435],
-        name: 'Open Mic Night',
-        description: 'Poetry, comedy, music – the stage is yours.',
-        category: 'Creative',
+        name: 'Campus Football Tournament',
+        description: '8 teams, 1 trophy. Join or cheer!',
+        category: 'Sports',
+        id: 3
       }
     ];
 
@@ -174,12 +178,16 @@
         const svg = el.querySelector('svg');
         if (svg) svg.setAttribute('fill', '#f8b11e');
 
+        const eventUrl = `/events/${event.id}`;
+
         popupDiv.innerHTML = `
           <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800 font-sans">
               <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">${event.category}</div>
             <div class="p-4">
-              <h3 class="text-univibe-purple text-lg mb-1">${event.name}</h3>
-              <p class="text-gray-700 text-sm">${event.description}</p>
+              <h3 class="text-univibe-purple text-lg mb-1">
+                <a href="${eventUrl}">${event.name}</a> </h3>
+              <p class="text-gray-700 text-sm">
+                <a href="${eventUrl}">${event.description}</a> </p>
             </div>
           </div>
         `;
@@ -191,4 +199,5 @@
     });
   </script>
 </body>
+
 </html>
