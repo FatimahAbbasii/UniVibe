@@ -35,6 +35,23 @@
         body {
             font-family: 'Goldman', sans-serif;
         }
+        .add-button {
+            width: 100%;
+            margin-top: 1rem;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-button:hover {
+            background: #7c3aed;
+        }
     </style>
 </head>
 
@@ -84,12 +101,12 @@
             <h3 class="uppercase text-univibe-purple text-xs font-bold">Time & date</h3>
             <p class="text-sm font-sans">{{ \Carbon\Carbon::parse($event->time)->format('jS M, H:i') }}</p>
         </div>
-
-        <a href="{{ url('music/' . Str::slug($event->name)) }}">
-            <button class="bg-neon-yellow text-purple-800 font-bold px-6 py-2 rounded-full hover:bg-yellow-500 transition-colors duration-300">
-                Pick music for the event
-            </button>
-        </a>
+        <button
+            onclick="window.location.href='{{ url('music/' . Str::slug($event->name)) }}'"
+            class="add-button mb-4"
+        >
+            Pick music for the event
+        </button>
 
         <div class="text-center mt-6">
             <p class="mb-2">Are you coming?</p>
