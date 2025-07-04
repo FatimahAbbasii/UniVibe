@@ -5,25 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
-
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
+    Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::get('/events', [EventController::class, 'index'])->name('events.index');
+    Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/', function () {
-    return view('mainPage');
-    });
     Route::get('/map', function () {
     return view('Map');
-    });
+    })->name('map');
 });
 
 require __DIR__.'/auth.php';

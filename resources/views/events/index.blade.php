@@ -77,40 +77,40 @@
 
     <h3 class="text-white text-lg mb-1 mt-8">Filter events</h3>
     <form method="GET" action="{{ url()->current() }}" class="space-y-4 mb-6" id="filterForm">
-    {{-- Category dropdown --}}
-    <select name="category" class="w-full px-4 py-2 rounded-lg text-black" onchange="this.form.submit()">
-        <option value="">All Categories</option>
-        @foreach($categories as $category)
-            <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>{{ $category }}</option>
-        @endforeach
-    </select>
+        {{-- Category dropdown --}}
+        <select name="category" class="w-full px-4 py-2 rounded-lg text-black" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            @foreach($categories as $category)
+                <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>{{ $category }}</option>
+            @endforeach
+        </select>
 
-    {{-- Address dropdown --}}
-    <select name="address" class="w-full px-4 py-2 rounded-lg text-black" onchange="this.form.submit()">
-        <option value="">All Locations</option>
-        @foreach($addresses as $address)
-            <option value="{{ $address }}" {{ request('address') == $address ? 'selected' : '' }}>{{ $address }}</option>
-        @endforeach
-    </select>
+        {{-- Address dropdown --}}
+        <select name="address" class="w-full px-4 py-2 rounded-lg text-black" onchange="this.form.submit()">
+            <option value="">All Locations</option>
+            @foreach($addresses as $address)
+                <option value="{{ $address }}" {{ request('address') == $address ? 'selected' : '' }}>{{ $address }}</option>
+            @endforeach
+        </select>
 
-    {{-- Vibe Score Range --}}
-    <div class="flex gap-2">
-        <input type="number" name="vibe_min" value="{{ request('vibe_min') }}" min="0" max="100"
-               placeholder="Min Vibe" class="w-1/2 px-4 py-2 rounded-lg text-black" />
-        <input type="number" name="vibe_max" value="{{ request('vibe_max') }}" min="0" max="100"
-               placeholder="Max Vibe" class="w-1/2 px-4 py-2 rounded-lg text-black" />
-    </div>
+        {{-- Vibe Score Range --}}
+        <div class="flex gap-2">
+            <input type="number" name="vibe_min" value="{{ request('vibe_min') }}" min="0" max="100"
+                placeholder="Min Vibe" class="w-1/2 px-4 py-2 rounded-lg text-black" />
+            <input type="number" name="vibe_max" value="{{ request('vibe_max') }}" min="0" max="100"
+                placeholder="Max Vibe" class="w-1/2 px-4 py-2 rounded-lg text-black" />
+        </div>
 
-    {{-- Time/date picker --}}
-    <input type="date" name="time" value="{{ request('time') }}"
-           class="w-full px-4 py-2 rounded-lg text-black" />
+        {{-- Time/date picker --}}
+        <input type="date" name="time" value="{{ request('time') }}"
+            class="w-full px-4 py-2 rounded-lg text-black" />
 
-    {{-- Submit / Reset --}}
-    <div class="flex justify-between items-center">
-        <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-lg">Filter</button>
-        <a href="{{ url()->current() }}" class="text-sm text-orange-400 underline">Clear</a>
-    </div>
-</form>
+        {{-- Submit / Reset --}}
+        <div class="flex justify-between items-center">
+            <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-lg">Filter</button>
+            <a href="{{ url()->current() }}" class="text-sm text-orange-400 underline">Clear</a>
+        </div>
+    </form>
 
         {{-- Upcoming events section --}}
         <div class="pt-2 space-y-6">
@@ -141,32 +141,7 @@
         </button>
     </div>
 
-    <nav
-        class="fixed bottom-0 left-0 right-0 w-full bg-white p-4 shadow-2xl flex justify-around items-center rounded-t-3xl max-w-md mx-auto z-50">
-        {{-- Home Icon --}}
-        <button class="flex flex-col items-center text-gray-500">
-            <img src="{{ asset('home.png') }}" alt="Home Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Home</span>
-        </button>
-
-        {{-- Map Icon --}}
-        <button class="flex flex-col items-center text-gray-500">
-            <img src="{{ asset('map.png') }}" alt="Map Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Map</span>
-        </button>
-
-        {{-- Events Icon --}}
-        <button class="flex flex-col items-center text-purple-700">
-            <img src="{{ asset('event.png') }}" alt="Events Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Events</span>
-        </button>
-
-        {{-- Profile Icon --}}
-        <button class="flex flex-col items-center text-gray-500">
-            <img src="{{ asset('profile.png') }}" alt="Profile Icon" class="h-6 w-6 mb-1 object-contain">
-            <span class="text-xs">Profile</span>
-        </button>
-    </nav>
+    <x-navigation />
 
     <script>
     const searchInput = document.querySelector('input[name="name"]');
