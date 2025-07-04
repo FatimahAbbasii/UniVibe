@@ -9,7 +9,7 @@ Route::get('/', [HomeController::class, 'home'])->middleware(['auth', 'verified'
 
 Route::get('/map', function () {
     return view('Map');
-    });
+    })->name('map');
 
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
