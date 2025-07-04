@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-    $latestEvent = Event::latest('time')->first();
-    return view('mainPage', compact('latestEvent'));
-}
+        $latestEvent = Event::latest('time')->first();
+        return view('mainPage', compact('latestEvent'));
+    }
 }
