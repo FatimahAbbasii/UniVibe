@@ -93,37 +93,13 @@
         }
   </style>
 </head>
+
 <body class="text-white bg-gradient-univibe overflow-hidden">
   <div class="title">UniVibe</div>
   <div id="map"></div>
 
-  <nav>
-    <button>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-7 13v-6h4v6m5-3v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4m13 0H6" />
-      </svg>
-      Home
-    </button>
-    <button class="inactive">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.382V7a2 2 0 012-2h6m8 5v6a2 2 0 01-2 2h-6m-3 0v-6a2 2 0 012-2h6" />
-      </svg>
-      Map
-    </button>
-    <button class="inactive">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6m6 3v-6a2 2 0 00-2-2h-6a2 2 0 00-2 2v6m6-6v6" />
-      </svg>
-      Events
-    </button>
-    <button class="inactive">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <circle cx="12" cy="12" r="10" stroke-width="2" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-      Profile
-    </button>
-  </nav>
+  {{-- Bottom Navigation Bar (fixed) --}}
+    <x-navigation />
 
   <div id="bottom-popup"></div>
 
