@@ -112,29 +112,37 @@
             <div class="pt-4 pb-4 relative z-0"> {{-- Removed px-6 from here --}}
                 {{-- Changed justify-around to justify-between for tighter edge alignment --}}
                 <div class="flex justify-between py-4 space-x-2">
-                    <a href="{{ route('events.index', ['category' => 'Sports']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-                        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                    <a href="{{ route('events.index', ['category' => 'Sports']) }}"
+                        class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div
+                            class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
                             <img src="{{ asset('sports.png') }}" alt="Sports Icon" class="h-7 w-7 object-contain">
                         </div>
                         <span>Sports</span>
                     </a>
 
-                    <a href="{{ route('events.index', ['category' => 'Creative']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-                        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                    <a href="{{ route('events.index', ['category' => 'Creative']) }}"
+                        class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div
+                            class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
                             <img src="{{ asset('creativity.png') }}" alt="Creative Icon" class="h-7 w-7 object-contain">
                         </div>
                         <span>Creative</span>
                     </a>
 
-                    <a href="{{ route('events.index', ['category' => 'Parties']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-                        <div class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                    <a href="{{ route('events.index', ['category' => 'Parties']) }}"
+                        class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div
+                            class="icon-bg-purple p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
                             <img src="{{ asset('parties.png') }}" alt="Parties Icon" class="h-7 w-7 object-contain">
                         </div>
                         <span>Parties</span>
                     </a>
 
-                    <a href="{{ route('events.index', ['category' => 'Contests']) }}" class="flex flex-col items-center space-y-1 text-white text-xs">
-                        <div class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
+                    <a href="{{ route('events.index', ['category' => 'Contests']) }}"
+                        class="flex flex-col items-center space-y-1 text-white text-xs">
+                        <div
+                            class="icon-bg-yellow p-3 rounded-full flex items-center justify-center w-14 h-14 shadow-lg">
                             <img src="{{ asset('trophy.png') }}" alt="Contests Icon" class="h-7 w-7 object-contain">
                         </div>
                         <span>Contests</span>
@@ -158,20 +166,34 @@
 
             {{-- Upcoming events section --}}
             @if ($latestEvent)
-            <div class="pt-8">
-                <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">event</span></h2>
-
-                {{-- Dynamic Event Card --}}
-                <a href="{{ route('events.show', $latestEvent->id) }}">
+                <div class="pt-8">
+                    <h2 class="text-white text-xl mb-4">Upcoming <span class="text-yellow-400">event</span></h2>
+                    <!-- Vibe Score top-left -->
+                    <div
+                        class="absolute top-4 left-4 bg-white text-purple-800 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        Vibe Score: {{ $latestEvent->vibe_score ?? 'N/A' }}
+                    </div>
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-800">
                         <div class="relative event-image-filter h-48">
-                            <img src="{{ asset($latestEvent->image) }}" alt="{{ $latestEvent->name }}" class="w-full h-full object-cover rounded-b-none rounded-t-2xl" />
+                            <img src="{{ asset($latestEvent->image) }}" alt="{{ $latestEvent->name }}"
+                                class="w-full h-full object-cover rounded-b-none rounded-t-2xl" />
 
                             <!-- Gradient overlay -->
-                             <div class="absolute inset-0 bg-purple-800 mix-blend-color opacity-80"></div>
+                            <div class="absolute inset-0 bg-purple-800 mix-blend-color opacity-80"></div>
 
-                            <div class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
+                            <div
+                                class="absolute top-4 right-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full">
                                 {{ ucfirst($latestEvent->category) }}
+                            </div>
+                            <!-- Vibe Score top-left -->
+                            <div
+                                class="absolute top-4 left-4 bg-yellow-500 text-purple-900 text-xs px-3 py-1 rounded-full shadow flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-500 mr-1"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.377 2.455a1 1 0 00-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.54 1.118L10 14.347l-3.376 2.455c-.785.57-1.84-.196-1.54-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.63 9.394c-.783-.57-.38-1.81.588-1.81h4.174a1 1 0 00.951-.69l1.286-3.967z" />
+                                </svg>
+                                {{ $latestEvent->vibe_score }}
                             </div>
                         </div>
                         <div class="p-4">
@@ -179,8 +201,8 @@
                             <p class="text-gray-700 text-sm font-sans">{{ $latestEvent->description }}</p>
                         </div>
                     </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             @endif
         </div>
     </div>
